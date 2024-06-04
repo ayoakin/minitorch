@@ -22,13 +22,7 @@ settings.load_profile("ci")
 
 @composite
 def vals(draw: DrawFn, size: int, number: SearchStrategy[float]) -> Tensor:
-    pts = draw(
-        lists(
-            number,
-            min_size=size,
-            max_size=size,
-        )
-    )
+    pts = draw(lists(number, min_size=size, max_size=size,))
     return minitorch.tensor(pts)
 
 

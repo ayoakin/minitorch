@@ -188,14 +188,8 @@ class SentenceSentimentTrain:
             if data_val is not None:
                 (X_val, y_val) = data_val
                 model.eval()
-                y = minitorch.tensor(
-                    y_val,
-                    backend=BACKEND,
-                )
-                x = minitorch.tensor(
-                    X_val,
-                    backend=BACKEND,
-                )
+                y = minitorch.tensor(y_val, backend=BACKEND,)
+                x = minitorch.tensor(X_val, backend=BACKEND,)
                 out = model.forward(x)
                 validation_predictions += get_predictions_array(y, out)
                 validation_accuracy.append(get_accuracy(validation_predictions))
